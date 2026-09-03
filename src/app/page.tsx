@@ -2,6 +2,7 @@
 
 import { ArrowRight, CheckCircle2, Code2, Zap, Layout, Monitor, ChevronDown, Rocket, Building2, Briefcase, Mail } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/5kQ14o3jXaLbeWsedQbo400";
 
@@ -56,11 +57,13 @@ export default function Home() {
               <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
               <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
             </div>
-            {/* next/image would require configuring domains if external, but we use local public image */}
-            <img 
+            <Image 
               src="/dashboard-preview.png" 
               alt="Dashboard Preview" 
+              width={1200}
+              height={800}
               className="w-full h-auto object-cover"
+              priority
             />
           </div>
         </div>
@@ -289,7 +292,7 @@ function FaqItem({ q, a }: { q: string, a: string }) {
   )
 }
 
-function ExternalLinkIcon(props: any) {
+function ExternalLinkIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
