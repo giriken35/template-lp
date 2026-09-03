@@ -23,25 +23,25 @@ export default function Contact() {
     <div className="min-h-screen bg-[#f8fafc] font-sans">
       
       {/* Azorb本体サイト共通ヘッダー（完全再現） */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-200/40 bg-[#f8fafc]/80 backdrop-blur-md">
         <div className="relative mx-auto flex h-14 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
           <a 
             href="https://azorb-site.vercel.app/" 
-            className="group flex items-center gap-2.5 rounded-xl px-2 py-1.5 -ml-2 transition-all hover:bg-slate-100 active:scale-95 z-50"
+            className="group flex items-center gap-2.5 rounded-xl px-2 py-1.5 -ml-2 transition-all hover:bg-slate-200/30 active:scale-95 z-50"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#3b82f6] to-[#14b8a6] text-white shadow-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#4f46e5] to-[#0d9488] text-white shadow-sm">
               <Code className="h-4 w-4" />
             </div>
-            <span className="text-sm font-bold tracking-widest text-slate-900 uppercase">
+            <span className="text-sm font-bold sm:text-base text-slate-900 uppercase tracking-widest">
               Azorb
             </span>
           </a>
           
           <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8 text-sm font-medium text-slate-500">
-            <a href="https://azorb-site.vercel.app/#products" className="hover:text-slate-900 transition-colors font-bold tracking-wide">
+            <a href="https://azorb-site.vercel.app/#products" className="hover:text-slate-900 transition-colors">
               Products
             </a>
-            <a href="https://azorb-site.vercel.app/#focus" className="hover:text-slate-900 transition-colors font-bold tracking-wide">
+            <a href="https://azorb-site.vercel.app/#focus" className="hover:text-slate-900 transition-colors">
               Focus Areas
             </a>
           </nav>
