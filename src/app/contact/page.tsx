@@ -2,6 +2,13 @@
 
 import { useState } from 'react';
 import { ArrowLeft, Send, Code, Menu, X } from 'lucide-react';
+import { Noto_Sans_JP } from 'next/font/google';
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+});
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,7 +31,7 @@ export default function Contact() {
   const dynamicInputClass = "w-full bg-[#f1f5f9] border border-[#e2e8f0] rounded-lg px-3 py-2 text-sm text-[#0f172a] focus:bg-[#ffffff] focus:outline-none focus:border-[#4f46e5] focus:ring-1 focus:ring-[#4f46e5] mt-2 transition-all shadow-sm";
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] font-sans antialiased text-[#0f172a]" style={{ fontFamily: 'var(--font-noto-sans-jp), "Inter", sans-serif' }}>
+    <div className={`min-h-screen bg-[#f8fafc] text-[#0f172a] antialiased ${notoSansJP.className}`}>
       
       {/* 完全にコピーしたヘッダー */}
       <header className="sticky top-0 z-50 w-full border-b border-[#e2e8f0]/40 bg-[#f8fafc]/80 backdrop-blur-md">
