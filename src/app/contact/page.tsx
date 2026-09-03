@@ -6,10 +6,20 @@ import Link from 'next/link';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // 選択状態の管理
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedInquiryType, setSelectedInquiryType] = useState("");
+  const [selectedBrowser, setSelectedBrowser] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsSubmitting(true);
   };
+
+  // 入力欄の共通クラス（見やすく明るめに調整）
+  const inputClass = "w-full bg-slate-800 border border-slate-600 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-inner";
+  // ラジオボタンを囲む枠の共通クラス（見やすく明るめに調整）
+  const radioGroupClass = "space-y-2 bg-slate-800/80 p-4 rounded-xl border border-slate-700 shadow-inner";
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 py-12 px-6">
@@ -45,7 +55,7 @@ export default function Contact() {
               <input 
                 type="text" 
                 name="company" 
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                className={inputClass}
                 placeholder="株式会社Azorb"
               />
             </div>
@@ -58,7 +68,7 @@ export default function Contact() {
                 type="text" 
                 name="name" 
                 required
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                className={inputClass}
                 placeholder="山田 太郎"
               />
             </div>
@@ -71,7 +81,7 @@ export default function Contact() {
                 type="email" 
                 name="email" 
                 required
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                className={inputClass}
                 placeholder="info@azorb.co"
               />
             </div>
@@ -80,26 +90,41 @@ export default function Contact() {
               <label className="block text-sm font-medium text-slate-300">
                 4. 対象のサービス <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
               </label>
-              <div className="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-white/5">
+              <div className={radioGroupClass}>
                 {[
                   "住所データ自動整形ツール",
                   "SaaS向け UIボイラープレート",
                   "寿命カウントダウンタイマー",
                   "自分専用 広告なし地元ニュースサイト",
                   "万能オートキャプチャ＆AI抽出・翻訳",
-                  "その他（Azorb全体について）"
+                  "その他"
                 ].map((service) => (
-                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-white/5 transition-colors cursor-pointer">
+                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="service" 
                       value={service}
                       required
-                      className="w-4 h-4 text-primary bg-slate-900 border-white/20 focus:ring-primary/50 focus:ring-offset-slate-900" 
+                      checked={selectedService === service}
+                      onChange={(e) => setSelectedService(e.target.value)}
+                      className="w-4 h-4 text-primary bg-slate-900 border-slate-500 focus:ring-primary/50 focus:ring-offset-slate-900" 
                     />
-                    <span className="text-slate-300">{service}</span>
+                    <span className="text-slate-200">{service}</span>
                   </label>
                 ))}
+                
+                {/* その他の場合の記述欄 */}
+                {selectedService === "その他" && (
+                  <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
+                    <input 
+                      type="text" 
+                      name="service_other" 
+                      required
+                      placeholder="サービス名をご記入ください"
+                      className="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -107,7 +132,7 @@ export default function Contact() {
               <label className="block text-sm font-medium text-slate-300">
                 5. お問い合わせの種別 <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
               </label>
-              <div className="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-white/5">
+              <div className={radioGroupClass}>
                 {[
                   "不具合・エラーのご報告",
                   "ご購入・お支払いに関するご質問",
@@ -115,17 +140,32 @@ export default function Contact() {
                   "機能の使い方についてのご質問",
                   "その他"
                 ].map((type) => (
-                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-white/5 transition-colors cursor-pointer">
+                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="inquiry_type" 
                       value={type}
                       required
-                      className="w-4 h-4 text-primary bg-slate-900 border-white/20 focus:ring-primary/50 focus:ring-offset-slate-900" 
+                      checked={selectedInquiryType === type}
+                      onChange={(e) => setSelectedInquiryType(e.target.value)}
+                      className="w-4 h-4 text-primary bg-slate-900 border-slate-500 focus:ring-primary/50 focus:ring-offset-slate-900" 
                     />
-                    <span className="text-slate-300">{type}</span>
+                    <span className="text-slate-200">{type}</span>
                   </label>
                 ))}
+
+                {/* その他の場合の記述欄 */}
+                {selectedInquiryType === "その他" && (
+                  <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
+                    <input 
+                      type="text" 
+                      name="inquiry_type_other" 
+                      required
+                      placeholder="お問い合わせ種別をご記入ください"
+                      className="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -133,16 +173,16 @@ export default function Contact() {
               <label className="block text-sm font-medium text-slate-300">
                 6. ご利用の環境 <span className="text-slate-500 ml-2 text-xs">【任意】（※不具合の場合はお選びください）</span>
               </label>
-              <div className="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-white/5">
+              <div className={radioGroupClass}>
                 {["Windows", "Mac", "iPhone / iPad", "Android"].map((env) => (
-                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-white/5 transition-colors cursor-pointer">
+                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="os" 
                       value={env}
-                      className="w-4 h-4 text-primary bg-slate-900 border-white/20 focus:ring-primary/50 focus:ring-offset-slate-900" 
+                      className="w-4 h-4 text-primary bg-slate-900 border-slate-500 focus:ring-primary/50 focus:ring-offset-slate-900" 
                     />
-                    <span className="text-slate-300">{env}</span>
+                    <span className="text-slate-200">{env}</span>
                   </label>
                 ))}
               </div>
@@ -152,18 +192,32 @@ export default function Contact() {
               <label className="block text-sm font-medium text-slate-300">
                 7. ご利用のブラウザ <span className="text-slate-500 ml-2 text-xs">【任意】（※不具合の場合はお選びください）</span>
               </label>
-              <div className="space-y-2 bg-slate-900/30 p-4 rounded-xl border border-white/5">
+              <div className={radioGroupClass}>
                 {["Google Chrome", "Safari", "Microsoft Edge", "Firefox", "その他"].map((browser) => (
-                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-white/5 transition-colors cursor-pointer">
+                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="browser" 
                       value={browser}
-                      className="w-4 h-4 text-primary bg-slate-900 border-white/20 focus:ring-primary/50 focus:ring-offset-slate-900" 
+                      checked={selectedBrowser === browser}
+                      onChange={(e) => setSelectedBrowser(e.target.value)}
+                      className="w-4 h-4 text-primary bg-slate-900 border-slate-500 focus:ring-primary/50 focus:ring-offset-slate-900" 
                     />
-                    <span className="text-slate-300">{browser}</span>
+                    <span className="text-slate-200">{browser}</span>
                   </label>
                 ))}
+
+                {/* その他の場合の記述欄 */}
+                {selectedBrowser === "その他" && (
+                  <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
+                    <input 
+                      type="text" 
+                      name="browser_other"
+                      placeholder="ご利用のブラウザをご記入ください"
+                      className="w-full bg-slate-900 border border-slate-600 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+                  </div>
+                )}
               </div>
             </div>
 
@@ -174,7 +228,7 @@ export default function Contact() {
               <input 
                 type="email" 
                 name="purchase_email" 
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
+                className={inputClass}
                 placeholder="購入時に使用したメールアドレス"
               />
             </div>
@@ -187,7 +241,7 @@ export default function Contact() {
                 name="message" 
                 required
                 rows={6}
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-y"
+                className={`${inputClass} resize-y`}
                 placeholder="【記入例】&#13;&#10;・エラーが起きたタイミング：ファイルをアップロードした瞬間&#13;&#10;・起きた現象：〇〇というエラーメッセージが出た&#13;&#10;※不具合以外の場合はご自由にご記入ください。"
               ></textarea>
             </div>
