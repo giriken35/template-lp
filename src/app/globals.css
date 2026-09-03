@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
   }
 }
 
