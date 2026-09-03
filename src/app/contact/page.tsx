@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { ArrowLeft, Send } from 'lucide-react';
-import Link from 'next/link';
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,33 +16,28 @@ export default function Contact() {
     setIsSubmitting(true);
   };
 
-  // 入力欄の共通クラス（クリーンで柔らかい質感）
-  const inputClass = "w-full bg-white/80 border border-slate-200/80 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)]";
-  // ラジオボタンを囲む枠の共通クラス
-  const radioGroupClass = "space-y-1.5 bg-white/50 p-4 rounded-xl border border-slate-200/60 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.02)]";
-  // 動的入力欄のクラス
-  const dynamicInputClass = "w-full bg-white/80 border border-slate-200/80 rounded-lg px-3 py-2 text-sm text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 shadow-inner mt-2 transition-all";
+  // Azorb本体サイトに合わせたクリーンなライトテーマ
+  const inputClass = "w-full bg-white border border-slate-300 rounded-lg px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all shadow-sm";
+  const radioGroupClass = "space-y-1.5 p-1";
+  const dynamicInputClass = "w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mt-2 transition-all shadow-sm";
 
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary/30 py-12 px-6">
-      {/* 背景は暗いネオンのまま */}
-      <div className="ambient-bg" />
-      
-      <div className="max-w-3xl mx-auto relative z-10">
-        <Link 
-          href="/"
-          className="inline-flex items-center text-sm text-slate-400 hover:text-primary transition-colors mb-8 group"
+    <div className="min-h-screen bg-[#f8fafc] font-sans py-12 px-6">
+      <div className="max-w-3xl mx-auto">
+        
+        {/* Azorb自社サイトへの戻るボタン */}
+        <a 
+          href="https://azorb-site.vercel.app/"
+          className="inline-flex items-center text-sm text-slate-500 hover:text-slate-800 transition-colors mb-8 font-medium"
         >
-          <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-          トップページへ戻る
-        </Link>
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Azorb トップへ
+        </a>
 
-        {/* 圧倒的高級感：真っ白ではなく少し透け感のある柔らかいオフホワイト調のグラスカード */}
-        <div className="bg-[#f8fafc]/90 backdrop-blur-2xl text-slate-800 rounded-[2rem] p-8 md:p-12 border border-white/40 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/40 via-primary to-primary/40"></div>
-          
-          <h1 className="text-3xl font-extrabold mb-2 text-slate-800 tracking-tight">お問い合わせ</h1>
-          <p className="text-slate-500 mb-10 pb-8 border-b border-slate-200/60 leading-relaxed">
+        {/* クリーンでフラットな白背景のフォームカード */}
+        <div className="bg-white text-slate-800 rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm relative overflow-hidden">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 text-slate-900">お問い合わせ</h1>
+          <p className="text-slate-600 mb-10 pb-8 border-b border-slate-100 text-sm md:text-base">
             Azorbの各種サービスについてのお問い合わせはこちらからお願いいたします。
           </p>
 
@@ -51,10 +45,10 @@ export default function Contact() {
             action="#" 
             method="POST" 
             onSubmit={handleSubmit}
-            className="space-y-8"
+            className="space-y-10"
           >
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
+              <label className="block text-sm font-bold text-slate-900">
                 1. 会社名 <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（個人のお客様は空欄可）</span>
               </label>
               <input 
@@ -66,8 +60,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
-                2. お名前（ご担当者様名） <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-bold text-slate-900">
+                2. お名前（ご担当者様名） <span className="text-rose-500 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <input 
                 type="text" 
@@ -79,8 +73,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
-                3. メールアドレス <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-bold text-slate-900">
+                3. メールアドレス <span className="text-rose-500 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <input 
                 type="email" 
@@ -92,8 +86,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
-                4. 対象のサービス <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-bold text-slate-900">
+                4. 対象のサービス <span className="text-rose-500 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <div className={radioGroupClass}>
                 {[
@@ -104,7 +98,7 @@ export default function Contact() {
                   "万能オートキャプチャ＆AI抽出・翻訳",
                   "その他"
                 ].map((service) => (
-                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
+                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-50 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="service" 
@@ -112,13 +106,12 @@ export default function Contact() {
                       required
                       checked={selectedService === service}
                       onChange={(e) => setSelectedService(e.target.value)}
-                      className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
+                      className="w-4 h-4 text-blue-600 bg-white border-slate-300 focus:ring-blue-500" 
                     />
-                    <span className="text-slate-700 font-medium">{service}</span>
+                    <span className="text-slate-700">{service}</span>
                   </label>
                 ))}
                 
-                {/* その他の場合の記述欄 */}
                 {selectedService === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -134,8 +127,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
-                5. お問い合わせの種別 <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-bold text-slate-900">
+                5. お問い合わせの種別 <span className="text-rose-500 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <div className={radioGroupClass}>
                 {[
@@ -145,7 +138,7 @@ export default function Contact() {
                   "機能の使い方についてのご質問",
                   "その他"
                 ].map((type) => (
-                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
+                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-50 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="inquiry_type" 
@@ -153,13 +146,12 @@ export default function Contact() {
                       required
                       checked={selectedInquiryType === type}
                       onChange={(e) => setSelectedInquiryType(e.target.value)}
-                      className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
+                      className="w-4 h-4 text-blue-600 bg-white border-slate-300 focus:ring-blue-500" 
                     />
-                    <span className="text-slate-700 font-medium">{type}</span>
+                    <span className="text-slate-700">{type}</span>
                   </label>
                 ))}
 
-                {/* その他の場合の記述欄 */}
                 {selectedInquiryType === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -175,25 +167,24 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
+              <label className="block text-sm font-bold text-slate-900">
                 6. ご利用の環境 <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
               </label>
               <div className={radioGroupClass}>
                 {["Windows", "Mac", "iPhone / iPad", "Android", "その他"].map((env) => (
-                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
+                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-50 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="os" 
                       value={env}
                       checked={selectedOs === env}
                       onChange={(e) => setSelectedOs(e.target.value)}
-                      className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
+                      className="w-4 h-4 text-blue-600 bg-white border-slate-300 focus:ring-blue-500" 
                     />
-                    <span className="text-slate-700 font-medium">{env}</span>
+                    <span className="text-slate-700">{env}</span>
                   </label>
                 ))}
 
-                {/* その他の場合の記述欄 */}
                 {selectedOs === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -208,25 +199,24 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
+              <label className="block text-sm font-bold text-slate-900">
                 7. ご利用のブラウザ <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
               </label>
               <div className={radioGroupClass}>
                 {["Google Chrome", "Safari", "Microsoft Edge", "Firefox", "その他"].map((browser) => (
-                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
+                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-50 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="browser" 
                       value={browser}
                       checked={selectedBrowser === browser}
                       onChange={(e) => setSelectedBrowser(e.target.value)}
-                      className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
+                      className="w-4 h-4 text-blue-600 bg-white border-slate-300 focus:ring-blue-500" 
                     />
-                    <span className="text-slate-700 font-medium">{browser}</span>
+                    <span className="text-slate-700">{browser}</span>
                   </label>
                 ))}
 
-                {/* その他の場合の記述欄 */}
                 {selectedBrowser === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -241,7 +231,7 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
+              <label className="block text-sm font-bold text-slate-900">
                 8. ご購入時のメールアドレス <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※既にツールをご購入済みの方）</span>
               </label>
               <input 
@@ -253,8 +243,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-700">
-                9. 具体的なお問い合わせ内容 <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-bold text-slate-900">
+                9. 具体的なお問い合わせ内容 <span className="text-rose-500 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <textarea 
                 name="message" 
@@ -265,11 +255,11 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-6">
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary-hover text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/30 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-[#1e40af] hover:bg-[#1e3a8a] text-white font-bold py-4 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   "送信準備中..."
@@ -280,7 +270,7 @@ export default function Contact() {
                   </>
                 )}
               </button>
-              <p className="text-center text-slate-500 text-xs mt-4 font-medium">
+              <p className="text-center text-slate-500 text-xs mt-4">
                 ※現在、送信機能はセットアップ中です。
               </p>
             </div>
