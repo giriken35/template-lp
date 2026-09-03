@@ -3,6 +3,7 @@
 import { ArrowRight, CheckCircle2, Code2, Zap, Layout, Monitor, ChevronDown, Rocket, Building2, Briefcase, Mail } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/5kQ14o3jXaLbeWsedQbo400";
 
@@ -245,15 +246,13 @@ export default function Home() {
           <p className="text-muted-foreground mb-8">
             法人契約のご相談や、テンプレートに関するご不明点がございましたら、お気軽にお問い合わせください。
           </p>
-          <a 
-            href="https://forms.gle/eGDqyKDbSsDDnnoc6"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            href="/contact"
             className="inline-flex items-center justify-center bg-card border border-border hover:border-primary/50 text-foreground font-bold py-4 px-8 rounded-xl transition-all gap-2"
           >
             お問い合わせフォームを開く
-            <ExternalLinkIcon className="w-4 h-4 text-muted-foreground" />
-          </a>
+            <ArrowRight className="w-4 h-4 text-muted-foreground" />
+          </Link>
         </div>
       </section>
 
@@ -263,7 +262,7 @@ export default function Home() {
           <a href="https://azorb-site.vercel.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">利用規約</a>
           <a href="https://azorb-site.vercel.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">プライバシーポリシー</a>
           <a href="https://azorb-site.vercel.app/legal" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">特定商取引法に基づく表記</a>
-          <a href="https://forms.gle/eGDqyKDbSsDDnnoc6" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">お問い合わせ</a>
+          <Link href="/contact" className="hover:text-primary transition-colors">お問い合わせ</Link>
         </div>
         <p>© 2026 Azorb. All rights reserved.</p>
       </footer>
