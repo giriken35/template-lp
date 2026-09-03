@@ -248,6 +248,8 @@ export default function Home() {
           </p>
           <Link 
             href="/contact"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-card border border-border hover:border-primary/50 text-foreground font-bold py-4 px-8 rounded-xl transition-all gap-2"
           >
             お問い合わせフォームを開く
@@ -262,7 +264,7 @@ export default function Home() {
           <a href="https://azorb-site.vercel.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">利用規約</a>
           <a href="https://azorb-site.vercel.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">プライバシーポリシー</a>
           <a href="https://azorb-site.vercel.app/legal" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">特定商取引法に基づく表記</a>
-          <Link href="/contact" className="hover:text-primary transition-colors">お問い合わせ</Link>
+          <Link href="/contact" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">お問い合わせ</Link>
         </div>
         <p>© 2026 Azorb. All rights reserved.</p>
       </footer>
