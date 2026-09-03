@@ -17,34 +17,33 @@ export default function Contact() {
     setIsSubmitting(true);
   };
 
-  // 入力欄の共通クラス（ダークカード上で視認性の高い白系の入力欄）
-  const inputClass = "w-full bg-slate-100 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all shadow-inner";
-  
-  // ラジオボタンを囲む枠の共通クラス（ダーク系で、少し浮き出る上品な色）
-  const radioGroupClass = "space-y-2 bg-slate-800/60 p-4 rounded-xl border border-slate-700 shadow-sm";
-  
+  // 入力欄の共通クラス（クリーンで柔らかい質感）
+  const inputClass = "w-full bg-white/80 border border-slate-200/80 rounded-xl px-4 py-3 text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)]";
+  // ラジオボタンを囲む枠の共通クラス
+  const radioGroupClass = "space-y-1.5 bg-white/50 p-4 rounded-xl border border-slate-200/60 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.02)]";
   // 動的入力欄のクラス
-  const dynamicInputClass = "w-full bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-inner mt-2";
+  const dynamicInputClass = "w-full bg-white/80 border border-slate-200/80 rounded-lg px-3 py-2 text-sm text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30 shadow-inner mt-2 transition-all";
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/30 py-12 px-6">
+      {/* 背景は暗いネオンのまま */}
       <div className="ambient-bg" />
       
       <div className="max-w-3xl mx-auto relative z-10">
         <Link 
           href="/"
-          className="inline-flex items-center text-sm text-slate-400 hover:text-primary transition-colors mb-8"
+          className="inline-flex items-center text-sm text-slate-400 hover:text-primary transition-colors mb-8 group"
         >
-          <ArrowLeft className="w-4 h-4 mr-2" />
+          <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
           トップページへ戻る
         </Link>
 
-        {/* フォーム全体は元の洗練されたダークグラスカードに戻す */}
-        <div className="glass-card rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50"></div>
+        {/* 圧倒的高級感：真っ白ではなく少し透け感のある柔らかいオフホワイト調のグラスカード */}
+        <div className="bg-[#f8fafc]/90 backdrop-blur-2xl text-slate-800 rounded-[2rem] p-8 md:p-12 border border-white/40 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/40 via-primary to-primary/40"></div>
           
-          <h1 className="text-3xl font-bold mb-2 text-white">お問い合わせ</h1>
-          <p className="text-slate-400 mb-8 pb-8 border-b border-white/10">
+          <h1 className="text-3xl font-extrabold mb-2 text-slate-800 tracking-tight">お問い合わせ</h1>
+          <p className="text-slate-500 mb-10 pb-8 border-b border-slate-200/60 leading-relaxed">
             Azorbの各種サービスについてのお問い合わせはこちらからお願いいたします。
           </p>
 
@@ -55,8 +54,8 @@ export default function Contact() {
             className="space-y-8"
           >
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                1. 会社名 <span className="text-slate-500 ml-2 text-xs font-normal">【任意】（個人のお客様は空欄可）</span>
+              <label className="block text-sm font-medium text-slate-700">
+                1. 会社名 <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（個人のお客様は空欄可）</span>
               </label>
               <input 
                 type="text" 
@@ -67,8 +66,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                2. お名前（ご担当者様名） <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-medium text-slate-700">
+                2. お名前（ご担当者様名） <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <input 
                 type="text" 
@@ -80,8 +79,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                3. メールアドレス <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-medium text-slate-700">
+                3. メールアドレス <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <input 
                 type="email" 
@@ -93,8 +92,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                4. 対象のサービス <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-medium text-slate-700">
+                4. 対象のサービス <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <div className={radioGroupClass}>
                 {[
@@ -105,7 +104,7 @@ export default function Contact() {
                   "万能オートキャプチャ＆AI抽出・翻訳",
                   "その他"
                 ].map((service) => (
-                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700/50 transition-colors cursor-pointer">
+                  <label key={service} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="service" 
@@ -115,10 +114,11 @@ export default function Contact() {
                       onChange={(e) => setSelectedService(e.target.value)}
                       className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
                     />
-                    <span className="text-slate-200 font-medium">{service}</span>
+                    <span className="text-slate-700 font-medium">{service}</span>
                   </label>
                 ))}
                 
+                {/* その他の場合の記述欄 */}
                 {selectedService === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -134,8 +134,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                5. お問い合わせの種別 <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-medium text-slate-700">
+                5. お問い合わせの種別 <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <div className={radioGroupClass}>
                 {[
@@ -145,7 +145,7 @@ export default function Contact() {
                   "機能の使い方についてのご質問",
                   "その他"
                 ].map((type) => (
-                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700/50 transition-colors cursor-pointer">
+                  <label key={type} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="inquiry_type" 
@@ -155,10 +155,11 @@ export default function Contact() {
                       onChange={(e) => setSelectedInquiryType(e.target.value)}
                       className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
                     />
-                    <span className="text-slate-200 font-medium">{type}</span>
+                    <span className="text-slate-700 font-medium">{type}</span>
                   </label>
                 ))}
 
+                {/* その他の場合の記述欄 */}
                 {selectedInquiryType === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -174,12 +175,12 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                6. ご利用の環境 <span className="text-slate-500 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
+              <label className="block text-sm font-medium text-slate-700">
+                6. ご利用の環境 <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
               </label>
               <div className={radioGroupClass}>
                 {["Windows", "Mac", "iPhone / iPad", "Android", "その他"].map((env) => (
-                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700/50 transition-colors cursor-pointer">
+                  <label key={env} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="os" 
@@ -188,10 +189,11 @@ export default function Contact() {
                       onChange={(e) => setSelectedOs(e.target.value)}
                       className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
                     />
-                    <span className="text-slate-200 font-medium">{env}</span>
+                    <span className="text-slate-700 font-medium">{env}</span>
                   </label>
                 ))}
 
+                {/* その他の場合の記述欄 */}
                 {selectedOs === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -206,12 +208,12 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                7. ご利用のブラウザ <span className="text-slate-500 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
+              <label className="block text-sm font-medium text-slate-700">
+                7. ご利用のブラウザ <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※不具合の場合はお選びください）</span>
               </label>
               <div className={radioGroupClass}>
                 {["Google Chrome", "Safari", "Microsoft Edge", "Firefox", "その他"].map((browser) => (
-                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-700/50 transition-colors cursor-pointer">
+                  <label key={browser} className="flex items-center space-x-3 p-2 rounded hover:bg-slate-100 transition-colors cursor-pointer">
                     <input 
                       type="radio" 
                       name="browser" 
@@ -220,10 +222,11 @@ export default function Contact() {
                       onChange={(e) => setSelectedBrowser(e.target.value)}
                       className="w-4 h-4 text-primary bg-white border-slate-300 focus:ring-primary" 
                     />
-                    <span className="text-slate-200 font-medium">{browser}</span>
+                    <span className="text-slate-700 font-medium">{browser}</span>
                   </label>
                 ))}
 
+                {/* その他の場合の記述欄 */}
                 {selectedBrowser === "その他" && (
                   <div className="pl-9 pr-2 pb-2 pt-1 transition-all duration-200">
                     <input 
@@ -238,8 +241,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                8. ご購入時のメールアドレス <span className="text-slate-500 ml-2 text-xs font-normal">【任意】（※既にツールをご購入済みの方）</span>
+              <label className="block text-sm font-medium text-slate-700">
+                8. ご購入時のメールアドレス <span className="text-slate-400 ml-2 text-xs font-normal">【任意】（※既にツールをご購入済みの方）</span>
               </label>
               <input 
                 type="email" 
@@ -250,8 +253,8 @@ export default function Contact() {
             </div>
 
             <div className="space-y-3">
-              <label className="block text-sm font-medium text-slate-300">
-                9. 具体的なお問い合わせ内容 <span className="text-red-400 ml-2 text-xs font-bold">【必須】</span>
+              <label className="block text-sm font-medium text-slate-700">
+                9. 具体的なお問い合わせ内容 <span className="text-rose-500/90 ml-2 text-xs font-bold">【必須】</span>
               </label>
               <textarea 
                 name="message" 
