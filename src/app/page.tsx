@@ -82,10 +82,10 @@ export default function Home() {
 
       <footer className="bg-white py-12 border-t border-slate-200 text-center text-slate-500 text-sm">
         <div className="mb-6 flex flex-wrap justify-center gap-x-6 gap-y-4">
-          <a href="https://azorb-site.vercel.app/terms" className="hover:text-primary transition-colors">利用規約</a>
-          <a href="https://azorb-site.vercel.app/privacy" className="hover:text-primary transition-colors">プライバシーポリシー</a>
-          <a href="https://azorb-site.vercel.app/legal" className="hover:text-primary transition-colors">特定商取引法に基づく表記</a>
-          <a href="https://azorb-site.vercel.app/#faq" className="hover:text-primary transition-colors">よくある質問 (FAQ)</a>
+          <a href="https://azorb-site.vercel.app/terms" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">利用規約</a>
+          <a href="https://azorb-site.vercel.app/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">プライバシーポリシー</a>
+          <a href="https://azorb-site.vercel.app/legal" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">特定商取引法に基づく表記</a>
+          <a href="https://azorb-site.vercel.app/#faq" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">よくある質問 (FAQ)</a>
           <a href="mailto:info@azorb.co" className="hover:text-primary transition-colors">お問い合わせ</a>
         </div>
         <p>© 2026 Azorb. All rights reserved.</p>
