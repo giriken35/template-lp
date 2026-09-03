@@ -1,8 +1,6 @@
 'use client'
 
-import { ArrowRight, CheckCircle2, Terminal, Code2, Zap, Layout, Monitor, Shield, ChevronDown, Rocket, Building2, Briefcase, Mail } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { ArrowRight, CheckCircle2, Code2, Zap, Layout, Monitor, ChevronDown, Rocket, Building2, Briefcase, Mail } from "lucide-react";
 import { useState } from "react";
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/5kQ14o3jXaLbeWsedQbo400";
