@@ -22,8 +22,23 @@ export default function Contact() {
   const dynamicInputClass = "w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mt-2 transition-all shadow-sm";
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] font-sans py-12 px-6">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-[#f8fafc] font-sans">
+      {/* Azorb本体サイト共通ヘッダー */}
+      <header className="w-full px-6 py-6 flex items-center justify-between max-w-5xl mx-auto">
+        <a href="https://azorb-site.vercel.app/" className="flex items-center gap-3 font-bold text-slate-800 tracking-widest text-lg">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-teal-500 flex items-center justify-center text-white text-xs font-mono">
+            &lt;&gt;
+          </div>
+          AZORB
+        </a>
+        <div className="flex gap-6 text-sm font-bold text-slate-500">
+          <a href="https://azorb-site.vercel.app/#products" className="hover:text-slate-800 transition-colors">Products</a>
+          <a href="https://azorb-site.vercel.app/#focus-areas" className="hover:text-slate-800 transition-colors">Focus Areas</a>
+        </div>
+      </header>
+
+      <div className="py-12 px-6">
+        <div className="max-w-3xl mx-auto">
         
         {/* Azorb自社サイトへの戻るボタン */}
         <a 
@@ -276,6 +291,7 @@ export default function Contact() {
             </div>
           </form>
         </div>
+      </div>
       </div>
     </div>
   );
